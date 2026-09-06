@@ -1,0 +1,30 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+const { title, description, pubDate, tags = [] } = Astro.props;
+const date = pubDate.toLocaleDateString("zh-CN", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+---
+<BaseLayout title={title} description={description} current="posts">
+  <article class="page-narrow prose">
+    <a class="back-link" href="/posts/">← 返回文章列表</a>
+    <header class="page-header">
+      <div class="post-meta">
+        <time datetime={pubDate.toISOString()}>{date}</time>
+        {tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </header>
+    <slot />
+  </article>
+</BaseLayout>
