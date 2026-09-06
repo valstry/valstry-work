@@ -1,40 +1,41 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PostCard from "../components/PostCard.astro";
-import { getCollection } from "astro:content";
+import { buildGraphData } from "../lib/graph";
 
-const posts = (await getCollection("posts", ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+const graph = await buildGraphData();
+const noteCount = graph.nodes.filter((n) => n.type === "note").length;
+const toolCount = graph.nodes.filter((n) => n.type === "tool").length;
 ---
-<BaseLayout title="Valstry Work" current="home">
-  <div class="page">
-    <section class="hero">
-      <h1>Valstry · 教程</h1>
-      <p>
-        面向实践的 AI 与自动化工具笔记：部署、工作流与选型，少空话、多可照做的步骤。
-        站点托管于 Cloudflare Pages，域名 valstry.work。
+<BaseLayout
+  title="Valstry · 知识库"
+  description="Valstry 个人知识库：笔记与外部工具的关系图谱导航。"
+  current="home"
+  fullBleed
+>
+  <div class="graph-home">
+    <aside class="graph-legend" aria-label="图例与提示">
+      <h1>Valstry · 知识库</h1>
+      <p class="graph-legend__desc">
+        学习笔记与常用工具的关系图。拖动节点、滚轮/双指缩放；点击笔记进入页面，点击工具打开外链。
       </p>
-    </section>
-
-    <section>
-      <h2 class="section-title">最新文章</h2>
-      <ul class="post-list">
-        {posts.map((post) => (
-          <li>
-            <PostCard
-              title={post.data.title}
-              description={post.data.description}
-              pubDate={post.data.pubDate}
-              tags={post.data.tags}
-              href={`/posts/${post.id}/`}
-            />
-          </li>
-        ))}
+      <ul class="graph-legend__keys">
+        <li><span class="swatch swatch--note"></span>笔记 {noteCount}</li>
+        <li><span class="swatch swatch--tool"></span>工具 {toolCount}</li>
       </ul>
-      <p style="margin-top: 1.25rem;">
-        <a href="/posts/">查看全部文章 →</a>
+      <p class="graph-legend__fallback">
+        手机不便操作？也可打开
+        <a href="/posts/">笔记列表</a>
+        或
+        <a href="/tools/">工具列表</a>。
       </p>
-    </section>
+    </aside>
+
+    <div class="graph-stage" role="application" aria-label="知识关系图">
+      <canvas id="wiki-graph"></canvas>
+      <div id="graph-tooltip" class="graph-tooltip" hidden></div>
+    </div>
   </div>
+
+  <script id="wiki-graph-data" type="application/json" set:html={JSON.stringify(graph)} />
+  <script src="../scripts/force-graph.ts"></script>
 </BaseLayout>

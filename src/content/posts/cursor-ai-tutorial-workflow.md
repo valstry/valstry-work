@@ -6,6 +6,10 @@ tags:
   - AI
   - Cursor
   - 写作
+related:
+  - tool:cursor
+  - tool:github
+  - note:automation-tool-selection
 ---
 
 用 Cursor 或其它 AI 助手写教程，最大的坑不是「写不出来」，而是「写得很像教程、读者却做不通」。下面是一套可重复的工作流，适合技术向中文干货。

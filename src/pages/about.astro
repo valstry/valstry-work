@@ -3,23 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 <BaseLayout
   title="关于"
-  description="关于 Valstry Work：AI 与自动化工具教程站点。"
+  description="关于 Valstry 知识库：个人学习笔记与工具合集。"
   current="about"
 >
   <div class="page-narrow prose">
     <header class="page-header">
-      <h1>关于 Valstry</h1>
-      <p>简短介绍与站点说明。</p>
+      <h1>关于 Valstry · 知识库</h1>
+      <p>个人学习 + 工具索引，用关系图谱浏览，而不是博客时间线。</p>
     </header>
     <p>
-      Valstry Work（valstry.work）是一个面向中文读者的静态内容站，聚焦
-      <strong>AI 助手、自动化工具与部署实践</strong>。内容以教程与干货为主，强调可复现的步骤，而不是概念堆砌。
+      <strong>valstry.work</strong> 是我的个人知识库：一边沉淀 AI、自动化与部署相关的实践笔记，一边把常用的外部工具挂在同一张图上。首页是类似 Obsidian 的力导向关系图——笔记与工具是两类节点，边表示「相关」。
     </p>
     <p>
-      当前版本为 v1：纯静态站点，使用 Astro 构建，通过 Cloudflare Pages 发布。后续可能会补充更多系列文章与工具清单，但会保持站点轻量、可读、移动端友好。
+      工具本身不托管在本站，点击后会在新标签打开官方地址；笔记则是站内 Markdown 页面。若手机上操作图谱不便，可用导航里的「笔记」「工具」列表作为备用入口。
     </p>
     <p>
-      如需引用或转载，请注明出处；反馈与勘误欢迎通过站点后续公开渠道联系。
+      技术栈：Astro 静态站点 + Content Collections，构建产物部署到 Cloudflare Pages。无登录、无评论、无 CMS——保持轻量可维护。
     </p>
+    <p>如需引用或转载，请注明出处。</p>
   </div>
 </BaseLayout>

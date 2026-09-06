@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+const tools = (await getCollection("tools")).sort((a, b) =>
+  a.data.title.localeCompare(b.data.title, "zh-CN")
+);
+---
+<BaseLayout
+  title="工具"
+  description="Valstry 知识库收录的外部工具合集。"
+  current="tools"
+>
+  <div class="page">
+    <header class="page-header">
+      <h1>工具合集</h1>
+      <p>从图谱点不开时，可在此直接跳转外链。工具在站外打开，本站只做索引。</p>
+    </header>
+    <ul class="tool-list">
+      {
+        tools.map((tool) => (
+          <li class="tool-card">
+            <div class="tool-card__body">
+              <h2>{tool.data.title}</h2>
+              <p>{tool.data.description}</p>
+              <div class="post-meta">
+                {tool.data.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <a
+              class="tool-card__btn"
+              href={tool.data.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              打开工具 →
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</BaseLayout>

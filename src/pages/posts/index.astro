@@ -8,14 +8,14 @@ const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
 );
 ---
 <BaseLayout
-  title="文章"
-  description="Valstry Work 全部教程与实践笔记。"
+  title="笔记"
+  description="Valstry 知识库全部学习笔记列表。"
   current="posts"
 >
   <div class="page">
     <header class="page-header">
-      <h1>全部文章</h1>
-      <p>按发布时间排序的教程与干货列表。</p>
+      <h1>全部笔记</h1>
+      <p>图谱的列表备用入口；按更新时间排序。</p>
     </header>
     <ul class="post-list">
       {posts.map((post) => (

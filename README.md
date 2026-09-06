@@ -1,50 +1,36 @@
-# Valstry Work
+# Valstry · 知识库
 
-AI 与自动化工具教程站点（中文）。在线地址：[valstry.work](https://valstry.work)
+个人学习笔记 + 外部工具合集（中文）。在线：https://valstry.work
 
-技术栈：Astro（静态输出）+ TypeScript + Markdown Content Collections。
+不是博客时间线首页，而是类似 Obsidian 的力导向关系图谱：笔记与工具是两类节点，边来自 frontmatter 的 related 字段。
+
+技术栈：Astro（静态输出）+ TypeScript + Markdown Content Collections。构建产物适合 Cloudflare Pages（dist/）。
 
 ## 本地开发
 
-```bash
-npm install
-npm run dev
-```
+bun install && bun run dev
 
-浏览器打开终端提示的本地地址（默认 http://localhost:4321）。
+浏览器打开终端提示的地址（默认 http://localhost:4321）。
 
-## 构建
+## 构建与预览
 
-```bash
-npm run build
-```
+bun run build && bun run preview
 
-静态产物输出到 `dist/`。本地预览：
+## 内容与图谱数据
 
-```bash
-npm run preview
-```
+- 笔记: src/content/posts/*.md （站内 wiki；可选 related）
+- 工具: src/content/tools/*.md （title / url / description / tags / related）
+
+related 写法: note:slug 或 tool:id；也可写裸 slug（笔记优先）。
+
+构建时 src/lib/graph.ts 生成节点与边；src/scripts/force-graph.ts 渲染力导向图。点击笔记站内跳转，点击工具新标签打开外链。
+
+页面: / 图谱；/posts/ 笔记列表；/tools/ 工具列表；/about/ 关于。
 
 ## 部署到 Cloudflare Pages
 
-1. 在 Cloudflare Dashboard 创建 Pages 项目，连接本 GitHub 仓库。
-2. 构建配置：
-   - **Build command**：`npm run build`
-   - **Build output directory**：`dist`
-   - Node.js 版本建议 20+
-3. 生产分支使用 `main`。
-4. 在项目 Custom domains 中绑定 `valstry.work`（以及可选的 `www`），按提示完成 DNS。
-
-无需 Wrangler 也可完成静态部署；本仓库 v1 不包含 Workers 运行时配置。
-
-## 内容结构
-
-- 文章：`src/content/posts/*.md`
-- 页面：`src/pages/`
-- 布局与组件：`src/layouts/`、`src/components/`
-
-新增文章：在 `src/content/posts/` 添加 Markdown，填写 frontmatter（title、description、pubDate、tags）即可。
+Build command: bun run build；Output: dist；分支 main；域名 valstry.work。
 
 ## 许可
 
-站点内容与代码默认保留所有权利；转载请注明出处。
+保留所有权利；转载请注明出处。

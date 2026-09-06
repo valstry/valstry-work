@@ -6,6 +6,10 @@ tags:
   - Cloudflare
   - 部署
   - 入门
+related:
+  - tool:cloudflare-docs
+  - tool:github
+  - note:cursor-ai-tutorial-workflow
 ---
 
 把静态站放到 Cloudflare Pages，流程其实很短：仓库连上、填对构建命令、绑定域名。下面按「第一次做也能跑通」来写。

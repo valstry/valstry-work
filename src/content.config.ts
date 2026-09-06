@@ -10,7 +10,20 @@ const posts = defineCollection({
     updatedDate: z.coerce.date().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    /** Graph edges: note slug or tool id (e.g. "note:slug" / "tool:id" or bare slug/id) */
+    related: z.array(z.string()).default([]),
   }),
 });
 
-export const collections = { posts };
+const tools = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx,yml,yaml}', base: './src/content/tools' }),
+  schema: z.object({
+    title: z.string(),
+    url: z.string().url(),
+    description: z.string(),
+    tags: z.array(z.string()).default([]),
+    related: z.array(z.string()).default([]),
+  }),
+});
+
+export const collections = { posts, tools };

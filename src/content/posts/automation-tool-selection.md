@@ -6,6 +6,11 @@ tags:
   - 自动化
   - 选型
   - 效率
+related:
+  - tool:github
+  - tool:regex101
+  - tool:caniuse
+  - note:cursor-ai-tutorial-workflow
 ---
 
 自动化需求一来，脑子里常跳出来两件事：写个脚本，或开一个 SaaS。选错了会很痛——脚本半夜挂掉没人盯，SaaS 则是月费叠月费。可以用下面几条经验做快速判断。

@@ -7,13 +7,18 @@ interface Props {
   title: string;
   description?: string;
   current?: string;
+  fullBleed?: boolean;
 }
 const {
   title,
-  description = "Valstry Work —— AI 与自动化工具教程、干货与实践笔记。",
+  description = "Valstry 知识库 —— 个人学习笔记与工具合集，以关系图谱浏览。",
   current,
+  fullBleed = false,
 } = Astro.props;
-const fullTitle = title === "Valstry Work" ? title : `${title} · Valstry Work`;
+const fullTitle =
+  title === "Valstry · 知识库" || title === "Valstry Work"
+    ? "Valstry · 知识库"
+    : `${title} · Valstry 知识库`;
 ---
 <!doctype html>
 <html lang="zh-CN">
@@ -23,14 +28,14 @@ const fullTitle = title === "Valstry Work" ? title : `${title} · Valstry Work`;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title="Valstry Work" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Valstry 知识库" href="/rss.xml" />
     <title>{fullTitle}</title>
   </head>
-  <body>
+  <body class:list={[{ "body--graph": fullBleed }]}>
     <Header current={current} />
-    <main>
+    <main class:list={[{ "main--bleed": fullBleed }]}>
       <slot />
     </main>
-    <Footer />
+    {!fullBleed && <Footer />}
   </body>
 </html>

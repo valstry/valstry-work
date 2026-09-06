@@ -8,8 +8,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: "Valstry Work",
-    description: "AI 与自动化工具教程、干货与实践笔记。",
+    title: "Valstry · 知识库",
+    description: "个人学习笔记与工具合集。",
     site: context.site ?? "https://valstry.work",
     items: posts.map((post) => ({
       title: post.data.title,
