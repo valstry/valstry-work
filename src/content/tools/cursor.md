@@ -8,4 +8,6 @@ tags:
 related:
   - note:cursor-ai-tutorial-workflow
   - tool:github
+  - note:grok-bot
+  - tool:grok-bot
 ---

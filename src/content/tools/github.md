@@ -9,4 +9,6 @@ related:
   - note:cloudflare-pages-deploy
   - note:cursor-ai-tutorial-workflow
   - tool:cloudflare-docs
+  - note:grok-bot
+  - tool:grok-bot
 ---
