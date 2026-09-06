@@ -8,15 +8,9 @@ tags:
   - 工作流
 related:
   - tool:grok-bot
-  - tool:cursor
-  - tool:github
-  - tool:cloudflare-docs
-  - note:cursor-ai-tutorial-workflow
-  - note:cloudflare-pages-deploy
-  - note:automation-tool-selection
 ---
 
-这是本站图谱里的**第一个节点**。不是广告页，是给我自己用的说明书：Grok Bot 能干啥、边界在哪、和旁边那些工具怎么连。
+这是本站图谱里的**第一个节点**。不是广告页，是给我自己用的说明书：Grok Bot 能干啥、边界在哪、旁边以后会挂哪些工具。
 
 ## 它是什么
 
@@ -33,14 +27,7 @@ Grok Bot 跑在 Cursor 里，是一个能长期跟着你做事的助手：有自
 3. **知识库形态**：不要纯博客列表，要 Obsidian 那种关系图——笔记 + 可跳转的工具。
 4. **登录接力**：GitHub 设备码、Cloudflare 登录这类只能人点的步骤，它打开页面，我登完交还。
 
-以后新工具、新笔记，也优先从「和 Grok Bot 怎么配合」写进图谱，而不是散落收藏夹。
-
-## 和旁边节点的关系
-
-- **Cursor**：编辑器本体；Grok Bot 坐在里面协作写代码、改站。
-- **GitHub**：代码与 Pages 的源；登录、建仓、推 `main`。
-- **Cloudflare 文档 / Pages 笔记**：域名与静态站发布。
-- **自动化选型笔记**：什么时候让助手直接干，什么时候自己写脚本或上 SaaS。
+以后新工具、新笔记从这里往外长，不堆样板内容。
 
 ## 使用备忘（给未来的自己）
 
@@ -49,4 +36,4 @@ Grok Bot 跑在 Cursor 里，是一个能长期跟着你做事的助手：有自
 - 前端丑可以先忍，内容与结构对了再丢给 Codex / Claude 抛光。
 - 工具节点要「能点开就用」：外链指向真实入口，一句话说明什么时候点它。
 
-下一篇可以写：怎么给本站加一个新工具节点（文件放哪、`related` 怎么填）。
+下一篇：加第二个真实节点（你的下一个常用工具或笔记）。

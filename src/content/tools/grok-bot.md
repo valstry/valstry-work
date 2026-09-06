@@ -8,8 +8,4 @@ tags:
   - Cursor
 related:
   - note:grok-bot
-  - tool:cursor
-  - tool:github
-  - note:cursor-ai-tutorial-workflow
-  - note:cloudflare-pages-deploy
 ---
